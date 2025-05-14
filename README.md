@@ -1,11 +1,11 @@
 # MNIST Handwritten Digit Classifier for Apple M1 (PyTorch)
 
-This project implements a simple Convolutional Neural Network (CNN) using PyTorch to classify handwritten digits from the MNIST dataset. It is optimized to run on Apple Silicon (M1/M2) chips using the MPS backend for GPU acceleration.
+This project implements a simple Convolutional Neural Network (CNN) using PyTorch to classify handwritten digits from the MNIST dataset. It is optimized to run efficiently on Apple Silicon (M1/M2/M3) chips using the MPS backend for GPU acceleration, while also providing fallback support for CUDA (NVIDIA GPUs) and CPU.
 
 ## Requirements
 
 - Python 3.x
-- PyTorch (with MPS support)
+- PyTorch (ensure your installation supports MPS for Apple Silicon or CUDA for NVIDIA GPUs)
 - Torchvision
 - Matplotlib
 - NumPy
@@ -14,38 +14,28 @@ This project implements a simple Convolutional Neural Network (CNN) using PyTorc
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+    git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
     cd YOUR_REPOSITORY_NAME
     ```
+    *Note: Remember to replace `YOUR_USERNAME/YOUR_REPOSITORY_NAME` with the actual GitHub path if you are hosting this code there.*
 
-2.  **Create and activate a virtual environment:**
+2.  **Create and activate a virtual environment (recommended):**
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     ```
+    *On Windows, use `.\.venv\Scripts\activate`*
 
 3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *(Alternatively, if you don't create a requirements.txt, list the pip install command)*
+    You can install the required libraries directly:
     ```bash
     pip install torch torchvision torchaudio matplotlib numpy
     ```
+    *Note: Ensure you install the correct PyTorch version for your specific hardware (MPS, CUDA, or CPU). Refer to the official PyTorch installation guide for details.*
 
 ## Running the Script
 
-Once the setup is complete and the virtual environment is activated:
+Once the setup is complete and your virtual environment is activated:
+
 ```bash
 python mnist-cnn.py
-
-Use code with caution.
-
-The script will:
-Download the MNIST dataset (if not already present in a data folder).
-Train the CNN model.
-Evaluate the model on the test set.
-Display sample predictions with their true labels.
-Expected Output
-You should see "Using MPS (Apple Metal) device." indicating GPU acceleration is active. The script will print training progress and final test accuracy (around 99%).
-Remember to replace `YOUR_USERNAME/YOUR_REPOSITORY_NAME` with your actual details.
